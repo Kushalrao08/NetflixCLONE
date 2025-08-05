@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="icon" type="ico" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <div class="main">
+        <nav>
+            <span><img width="114" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                    alt="Netflix Logo"></span>
+            <div>
+                <input type="text" id="searchBar" placeholder="Search movies...">
+                <button class="btn" id="loginBtn">Login</button>
+                <button class="btn btn-red-sn" id="subscribeBtn">Subscribe</button>
+                <button class="btn" id="profileBtn" style="display:none;">Profile</button>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="box"></div>
+        <div class="hero">
+            <span>Unlimited movies, TV shows and more</span>
+            <span>Starts at ₹149. Cancel at any time.</span>
+            <span>Ready to watch? Enter your email to create or restart your membership.</span>
+            <div class="hero-buttons">
+                <input type="email" placeholder="Email address">
+                <button class="btn btn-red">Get Started</button>
+            </div>
+        </div>
+        <div class="seperation"></div>
+    </div>
+
+    <!-- MOVIES -->
+    <section class="movies">
+        <h2 style="color:white; text-align:center;">Popular on Netflix</h2>
+        <div class="movie-grid" id="movieGrid"></div>
+    </section>
+
+    <!-- MY LIST -->
+    <section class="movies">
+        <h2 style="color:white; text-align:center;">My List</h2>
+        <div class="movie-grid" id="myListGrid"></div>
+    </section>
+    <div class="seperation"></div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginSubmit" class="btn btn-red">Login</button>
+            <button id="closeLogin" class="btn">Close</button>
+        </div>
+    </div>
+
+    <!-- SUBSCRIBE MODAL -->
+    <div class="modal" id="subscribeModal">
+        <div class="modal-content">
+            <h2>Choose Your Plan</h2>
+            <button class="plan-btn" data-plan="Mobile">Mobile - ₹149</button>
+            <button class="plan-btn" data-plan="Basic">Basic - ₹199</button>
+            <button class="plan-btn" data-plan="Premium">Premium - ₹649</button>
+            <button id="closeSubscribe" class="btn">Close</button>
+        </div>
+    </div>
+
+    <!-- MOVIE PLAYER OVERLAY -->
+    <div class="modal" id="moviePlayerModal">
+        <div class="modal-content movie-player">
+            <h2 id="movieTitle"></h2>
+            <p id="movieDescription"></p>
+            <iframe id="movieTrailer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            <div class="player-controls">
+                <button id="prevMovie" class="btn">◀ Previous</button>
+                <button id="nextMovie" class="btn">Next ▶</button>
+                <button id="addToList" class="btn btn-red">+ My List</button>
+                <button id="closePlayer" class="btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
