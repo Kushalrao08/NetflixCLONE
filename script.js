@@ -15,13 +15,16 @@ async function loadMovies() {
             const videoData = await videoRes.json();
             const trailer = videoData.results.find(v => v.type === "Trailer" && v.site === "YouTube");
             if (trailer) trailerKey = trailer.key;
-        } catch {
-            trailerKey = null;
+        } catch (err) {
+            console.error("Trailer fetch error:", err);
         }
+
+        const posterPath = m.poster_path ? IMAGE_BASE + m.poster_path : "https://via.placeholder.com/500x750?text=No+Image";
+
         return {
             title: m.title,
-            description: m.overview,
-            image: IMAGE_BASE + m.poster_path,
+            description: m.overview || "No description available.",
+            image: posterPath,
             trailer: trailerKey ? `https://www.youtube.com/embed/${trailerKey}` : "https://www.youtube.com/embed/dQw4w9WgXcQ"
         };
     });
@@ -169,3 +172,4 @@ if (localStorage.getItem("user")) {
 // Initialize
 loadMovies();
 renderMyList();
+
